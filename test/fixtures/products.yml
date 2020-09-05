@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  flavor: MyString
+  size: MyString
+  topping: MyString
+  crust: MyString
+  price: 1.5
+
+two:
+  category: MyString
+  flavor: MyString
+  size: MyString
+  topping: MyString
+  crust: MyString
+  price: 1.5
