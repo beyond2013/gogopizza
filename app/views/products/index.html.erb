@@ -24,6 +24,7 @@
         <td><%= product.topping %></td>
         <td><%= product.crust %></td>
         <td><%= product.price %></td>
+        <td><%= image_tag product.product_image.variant(resize_to_limit: [150, nil]) if product.product_image.attached? %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
