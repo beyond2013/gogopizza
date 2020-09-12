@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_081143) do
+ActiveRecord::Schema.define(version: 2020_09_12_085139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,15 @@ ActiveRecord::Schema.define(version: 2020_09_06_081143) do
     t.index ["description"], name: "index_categories_on_description", unique: true
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "category", null: false
+  create_table "cuisines", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_cuisines_on_name", unique: true
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name", null: false
     t.string "flavor"
     t.string "size", null: false
     t.string "topping"
@@ -52,7 +59,10 @@ ActiveRecord::Schema.define(version: 2020_09_06_081143) do
     t.float "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cuisine_id", null: false
+    t.index ["cuisine_id"], name: "index_foods_on_cuisine_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "foods", "cuisines"
 end

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @food.name %>
+</p>
+
+<p>
+  <strong>Flavor:</strong>
+  <%= @food.flavor %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @food.size %>
+</p>
+
+<p>
+  <strong>Topping:</strong>
+  <%= @food.topping %>
+</p>
+
+<p>
+  <strong>Crust:</strong>
+  <%= @food.crust %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @food.price %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @food.food_image if @food.food_image.attached? %>
+</p>
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>
